@@ -1,0 +1,18 @@
+import java.util.*;
+public class coinToss {
+    public static void cointoss(int num,String st){
+        if (num==0){
+            System.out.println(st);
+            return;
+        }cointoss(num-1, st+"H");
+        cointoss(num-1, st+"T");
+    }
+    
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("how many coins are tossed? ");
+        int n = sc.nextInt();
+        cointoss(n,"");
+    }
+}
