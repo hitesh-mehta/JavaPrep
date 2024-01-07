@@ -1,0 +1,23 @@
+import java.util.*;
+public class Maze {
+    //there is a maze of order n*m i.e. n rows and m columns...
+    //print all the possible ways to go from (0,0) to (n-1,m-1)
+    public static void maze(int rows, int cols, int currRow, int currCol, String path){
+        if (currRow==rows-1 && currCol==cols-1){
+            System.out.println(path);
+            return;
+        }if(currRow==rows || currCol==cols){
+            return;
+        }
+        maze(rows, cols, currRow, currCol+1, path+"H");
+        maze(rows, cols, currRow+1, currCol, path+"V");
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter the no. of rows : ");
+        int n = sc.nextInt();
+        System.out.print("enter the no. of columns : ");
+        int m = sc.nextInt();
+        maze(n,m,0,0,"");
+    }
+}
