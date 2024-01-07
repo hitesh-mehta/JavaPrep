@@ -1,0 +1,17 @@
+public class Main{
+    //print all the possible permutations of a given string
+    public static void permutations(String st,String newString){
+        if(st.length()==0){
+            System.out.println(newString);
+            return;
+        }for(int i=0;i<st.length();i++){
+            String st1 = st.substring(0,i)+st.substring(i+1); //this is done to eliminate the current character 
+            permutations(st1,newString+st.charAt(i)); //applied same permutation with a new string 
+        }
+    }
+    
+    public static void main(String[] args){
+        String st = "abc";
+        permutations(st,"");
+    }
+}
