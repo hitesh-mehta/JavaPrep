@@ -1,0 +1,16 @@
+public class subsets {
+    //Q print all the subsets of the set of first n natural numbers
+    public static void subsets(int n, String st){
+        if(n==0){
+            System.out.println(st);
+            return;
+        }
+            subsets(n-1, st+Integer.toString(n)); //Integer.toString(n) converts integer into string format
+            subsets(n-1, st);
+        }
+
+    public static void main(String[] args) {
+
+        subsets(5,"");
+    }
+}
