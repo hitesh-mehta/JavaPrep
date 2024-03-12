@@ -1,0 +1,28 @@
+import java.util.*;
+class Solution {
+    public boolean isSame(char c1, char c2){
+        if (c1=='('&&c2==')') return true;
+        if (c1=='{'&&c2=='}') return true;
+        if (c1=='['&&c2==']') return true;
+        return false;
+    }
+    public boolean isValid(String s) {
+        Stack<Character> st = new Stack<>();
+        if(s.length()==0||s.length()==1) return false;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='('||s.charAt(i)=='{'||s.charAt(i)=='['){
+                st.push(s.charAt(i));
+            }
+            else{
+                if(st.isEmpty()) return false;
+                else{
+                    if(isSame(st.peek(),s.charAt(i))==false) return false;
+                    else{
+                        st.pop();
+                    }
+                }
+            }
+        }return st.isEmpty();
+        
+    }
+}
